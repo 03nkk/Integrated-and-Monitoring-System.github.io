@@ -1,0 +1,193 @@
+/* Import base styles from style-utama.css */
+@import url('style-utama.css');
+
+/* Page Header */
+.page-header {
+    background-color: var(--bg-tertiary);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--space-xs);
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Content Section */
+.content-section {
+    padding: var(--space-xl) 0;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* Content Card */
+.content-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.content-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.card-header {
+    background-color: var(--bg-tertiary);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.card-number {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.1;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card-body {
+    padding: var(--space-md);
+}
+
+/* Document List */
+.document-list {
+    list-style: none;
+}
+
+.document-list li {
+    margin-bottom: var(--space-sm);
+}
+
+.document-list li:last-child {
+    margin-bottom: 0;
+}
+
+.document-list a {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.document-list a:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    transform: translateX(4px);
+}
+
+.document-list .icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: var(--space-xs);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+}
+
+.document-list h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.document-list p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Scrollable Content untuk card dengan banyak item */
+.scrollable-content {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+.scrollable-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Firefox Scrollbar */
+.scrollable-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-tertiary);
+}
+
+/* Visual indicator untuk scrollable content */
+.card-body.scrollable-content {
+    position: relative;
+}
+
+.card-body.scrollable-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--bg-primary));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.card-body.scrollable-content:hover::after {
+    opacity: 1;
+}
+
+/* Responsive adjustments specific to portal-mahasiswa */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+}
