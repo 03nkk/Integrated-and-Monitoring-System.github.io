@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Harian - KKN 03 Genteng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style-utama.css">
+    <link rel="stylesheet" href="assets/css/style-log.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X44X5DYDPH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-X44X5DYDPH');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo KKN">
+                    <span class="logo-text">KKN 03 Genteng</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="portal-mahasiswa.html">Portal Mahasiswa</a></li>
+                    <li><a href="portal-dosen.html">Portal Dosen</a></li>
+                    <li><a href="profil-anggota.html">Profil Anggota</a></li>
+                    <li><a href="log-harian.html" class="active">Log Harian</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Log Aktivitas Harian</h1>
+                <p>Jejak langkah dan progres kegiatan KKN Kelompok 03 di Desa Genteng.</p>
+                <p style="font-style: italic;">Catatan: Klik untuk melihat detail aktivitas</p>
+            </div>
+        </section>
+        
+        <section class="log-section">
+            <div class="container">
+                <div class="log-nav-tabs">
+                    <button class="tab-link active" data-tab="timeline-juli">Juli</button>
+                    <button class="tab-link" data-tab="timeline-agustus">Agustus</button>
+                    <button class="tab-link" data-tab="timeline-september">September</button>
+                </div>
+
+                <div class="timeline-container">
+
+                    <!-- Juli -->
+                    <div id="timeline-juli" class="timeline active">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <time>Jumat, 22 Juli 2025</time>
+                                <h3>Survei Lokasi Pra-KKN</h3>
+                                <div class="timeline-details">
+                                    <p>Tim KKN tiba di Desa Genteng, melakukan survei tempat menetap untuk KKN, dan sosialisasi perkenalan awal dengan warga desa</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <time>Hari, Tanggal</time>
+                                <h3>Under Development</h3>
+                                <div class="timeline-details">
+                                    <p>Ini akan ditambahkan di kemudian</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Agustus -->
+                    <div id="timeline-agustus" class="timeline">
+                         <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <time>Hari, Tanggal</time>
+                                <h3>Under Development</h3>
+                                <div class="timeline-details">
+                                    <p>Ini akan ditambahkan di kemudian</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- September -->
+                    <div id="timeline-september" class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <time>Hari, Tanggal</time>
+                                <h3>Under Development</h3>
+                                <div class="timeline-details">
+                                    <p>Ini akan ditambahkan di kemudian</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 KKN Kelompok 03 Genteng IKOPIN University. All rights reserved.</p>
+                <p>Sistem Informasi Kuliah Kerja Nyata</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script-log.js"></script> </body>
+</html>

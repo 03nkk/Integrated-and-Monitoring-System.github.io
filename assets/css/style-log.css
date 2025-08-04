@@ -1,0 +1,218 @@
+/* Import base styles */
+@import url('style-utama.css');
+
+/* Page Header */
+.page-header {
+    background-color: var(--bg-tertiary);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+.page-header h1 {
+    font-size: 2.25rem; font-weight: 700; color: var(--primary-color); margin-bottom: var(--space-xs);
+}
+.page-header p {
+    color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto;
+}
+
+/* Log Section & Nav Tabs */
+.log-section {
+    padding: var(--space-xl) 0;
+}
+.log-nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+.tab-link {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+.tab-link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--primary-color);
+}
+.tab-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+}
+.timeline {
+    display: none;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-lg) 0;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+}
+.timeline.active {
+    display: block;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Garis tengah timeline (Desktop) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background-color: var(--border-color);
+    transition: left var(--transition-base);
+}
+
+/* Setiap item di timeline (Desktop) */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    transition: all var(--transition-base);
+}
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-left: 0;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-right: 0;
+}
+
+/* Titik di timeline */
+.timeline-dot {
+    content: '';
+    position: absolute;
+    top: 28px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bg-primary);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 1;
+    transition: all var(--transition-base);
+}
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -7.5px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -7.5px;
+}
+.timeline-item.active .timeline-dot {
+    background-color: var(--secondary-color);
+}
+
+/* Konten (kotak deskripsi) */
+.timeline-content {
+    padding: var(--space-md);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-base);
+}
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary-color);
+}
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: all var(--transition-base);
+}
+.timeline-item:nth-child(odd) .timeline-content::after {
+    right: -15px;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent var(--bg-primary);
+}
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -15px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent var(--bg-primary) transparent transparent;
+}
+
+/* Teks di dalam konten */
+.timeline-content time {
+    display: block; font-size: 0.875rem; font-weight: 500; color: var(--secondary-color); margin-bottom: var(--space-xs);
+}
+.timeline-content h3 {
+    font-size: 1.25rem; font-weight: 600; color: var(--text-primary);
+}
+.timeline-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), margin-top var(--transition-slow);
+}
+.timeline-details p {
+    font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;
+}
+.timeline-item.active .timeline-details {
+    max-height: 200px; margin-top: var(--space-sm);
+}
+
+/* ======================================================= */
+/* === BLOK RESPONSIVE FINAL UNTUK TAMPILAN MOBILE === */
+/* ======================================================= */
+@media (max-width: 768px) {
+    /* 1. Geser garis timeline ke paling kiri */
+    .timeline::before {
+        left: 20px;
+    }
+
+    /* 2. Atur SEMUA item agar sejajar */
+    .timeline-item:nth-child(odd) {
+        width: 113%;
+        left: 0px; /* Reset posisi 'left' dari desktop */
+        padding: 10px 80px 10px 55px; /* Atur padding: Atas, Kanan, Bawah, KIRI */
+    }
+    .timeline-item:nth-child(even) { /* Targetkan item genap juga */
+        width: 100%;
+        left: 20px; /* Reset posisi 'left' dari desktop */
+        padding: 10px 10px 10px 35px; /* Atur padding: Atas, Kanan, Bawah, KIRI */
+    }
+
+    /* 3. Posisikan SEMUA titik di atas garis kiri */
+    .timeline-item .timeline-dot {
+        left: 12.5px;
+        right: auto; /* Reset posisi 'right' dari desktop */
+    }
+
+    /* 4. Arahkan SEMUA panah penunjuk ke kiri */
+    .timeline-item:nth-child(odd) .timeline-content::after {
+        left: -15px;
+        right: auto; /* Reset posisi 'right' dari desktop */
+        border-width: 10px 15px 10px 0;
+        border-color: transparent var(--bg-primary) transparent transparent;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+        left: -15px;
+        right: auto; /* Reset posisi 'right' dari desktop */
+        border-width: 10px 15px 10px 0;
+        border-color: transparent var(--bg-primary) transparent transparent;
+    }
+}
